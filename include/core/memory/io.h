@@ -4,11 +4,13 @@
 #include <stdint.h>
 #include <string>
 
+#define BOOT_ROM_DISABLE 0xFF50
+
 
 class IO {
 public:
-  IO() {};
-  ~IO() {};
+  IO() {}
+  ~IO() {}
   uint8_t read8(uint16_t offset);
   void write8(uint16_t offset, uint8_t data);
   uint16_t read16(uint16_t offset);

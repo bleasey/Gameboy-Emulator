@@ -7,7 +7,7 @@
 
 class VRAM {
 public:
-  VRAM() { vram = new uint8_t[0x2000]; }
+  VRAM() {}
   ~VRAM() {}
   uint8_t read8(uint16_t offset);
   void write8(uint16_t offset, uint8_t data);
@@ -15,7 +15,7 @@ public:
   void write16(uint16_t offset, uint16_t data);
 
 private:
-  uint8_t* vram;
+  uint8_t vram[0x2000] = {0x00};
 };
 
 #endif

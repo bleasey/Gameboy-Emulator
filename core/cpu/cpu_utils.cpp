@@ -24,12 +24,11 @@ void CPU::A_Wrapper(void (CPU::*ins)()) {
 
 // Print
 void CPU::print_regs() {
-  std::cout << std::endl;
-  std::cout << "AF: 0x" << std::hex << AF.full << std::endl;
-  std::cout << "BC: 0x" << std::hex << BC.full << std::endl;
-  std::cout << "DE: 0x" << std::hex << DE.full << std::endl;
-  std::cout << "HL: 0x" << std::hex << HL.full << std::endl;
-  std::cout << "SP: 0x" << std::hex << SP << std::endl;
-  std::cout << "PC: 0x" << std::hex << PC << std::endl;
-  std::cout << std::endl;
+  std::cout << "AF: 0x" << std::hex << AF.full << " | "
+            << "BC: 0x" << std::hex << BC.full << " | "
+            << "DE: 0x" << std::hex << DE.full << " | "
+            << "HL: 0x" << std::hex << HL.full << " | "
+            << "SP: 0x" << std::hex << SP << " | "
+            << "PC: 0x" << std::hex << PC
+            << std::endl;
 }

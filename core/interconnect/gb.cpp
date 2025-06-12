@@ -18,6 +18,8 @@ GB::GB(std::string boot_file_path, std::string cartridge_file_path) {
   vram = new VRAM();
   io = new IO();
   hram = new HRAM();
+
+  write8(0xFF44, 0x90); // Hack for now till ppu is implemented
 }
 
 GB::~GB() {
@@ -83,6 +85,7 @@ void GB::write8(uint16_t addr, uint8_t data) {
   }
   else if (io_range.in_range(addr)) {
     io->write8(io_range.offset_of(addr), data);
+    if (addr == BOOT_ROM_DISABLE) boot_mode_enabled = false;
     return;
   }
   else if (hram_range.in_range(addr)) {
